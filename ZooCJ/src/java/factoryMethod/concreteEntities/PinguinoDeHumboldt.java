@@ -6,10 +6,26 @@
 
 package factoryMethod.concreteEntities;
 
+import factoryMethod.abstractEntities.Animal;
+import java.util.ArrayList;
+
 /**
  *
  * @author jackl
  */
-public class PinguinoDeHumboldt {
+public class PinguinoDeHumboldt implements Animal{
+
+    @Override
+    public ArrayList getData(){
+        ArrayList data = new ArrayList<String>();
+        data.add("Kingodm: Animalia");
+        data.add("Phylum: Chordata");
+        data.add("Class: Aves");
+        data.add("Order: Sphenisciformes");
+        data.add("Family: Spheniscidae");
+        data.add("Genuso: Spheniscus");
+        data.add("Specie: Spheniscus humboldti");
+        return data;
+    }
     
 }

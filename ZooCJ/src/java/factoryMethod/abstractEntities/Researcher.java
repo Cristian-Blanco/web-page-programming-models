@@ -11,6 +11,6 @@ package factoryMethod.abstractEntities;
  * @author jackl
  */
 public interface Researcher {
-    public Animal accessToAnimalData();
+    public Animal accessToAnimalData(int index);
     
 }

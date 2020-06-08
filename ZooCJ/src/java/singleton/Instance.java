@@ -15,12 +15,19 @@ public class Instance {
     private Instance(){
         
     }
-    public static boolean getInstance(){
+    public static boolean alreadyInstance(){
         if(unique==null){
             unique=new Instance();
+            System.out.println("Proving...");
             return true;
         }else{
             return false;
         }
+    }
+    public static Instance getInstance(){
+        if(unique==null){
+            unique=new Instance();      
+        }
+        return unique;
     }
 }

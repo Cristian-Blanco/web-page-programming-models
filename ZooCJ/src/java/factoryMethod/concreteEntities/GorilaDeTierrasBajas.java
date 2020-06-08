@@ -6,10 +6,26 @@
 
 package factoryMethod.concreteEntities;
 
+import factoryMethod.abstractEntities.Animal;
+import java.util.ArrayList;
+
 /**
  *
  * @author jackl
  */
-public class GorilaDeTierrasBajas {
+public class GorilaDeTierrasBajas implements Animal{
+
+    @Override
+    public ArrayList getData(){
+        ArrayList data = new ArrayList<String>();
+        data.add("Kingodm: Animalia");
+        data.add("Phylum: Chordata");
+        data.add("Class: Mammalia");
+        data.add("Order: Primates");
+        data.add("Family: Hominidae");
+        data.add("Genuso: Gorillini");
+        data.add("Specie: Gorilla gorilla");
+        return data;
+    }
     
 }

@@ -10,62 +10,28 @@ package prototype.abstractEntities;
  *
  * @author jackl
  */
-public abstract class Ticket {
+public interface Ticket {
     
-    public abstract Ticket clone();
-    private String benefits=" ";
-    private String planName=" ";
-    private String visiterAmmount = " ";
-    private String price = " ";
-    private String inTime=" ";
-    private String outTime=" ";
+    
 
-    public String getBenefits() {
-        return benefits;
-    }
+    public String getBenefits();
 
-    public void setBenefits(String benefits) {
-        this.benefits = benefits;
-    }
+    public String getPlanName();
 
-    public String getPlanName() {
-        return planName;
-    }
+    public String getVisiterAmmount();
 
-    public void setPlanName(String planName) {
-        this.planName = planName;
-    }
+    public void setVisiterAmmount(String visiterAmmount);
 
-    public String getVisiterAmmount() {
-        return visiterAmmount;
-    }
+    public String getPrice();
 
-    public void setVisiterAmmount(String visiterAmmount) {
-        this.visiterAmmount = visiterAmmount;
-    }
+    public String getInTime();
 
-    public String getPrice() {
-        return price;
-    }
+    public void setInTime(String inTime);
 
-    public void setPrice(String price) {
-        this.price = price;
-    }
+    public String getOutTime();
 
-    public String getInTime() {
-        return inTime;
-    }
-
-    public void setInTime(String inTime) {
-        this.inTime = inTime;
-    }
-
-    public String getOutTime() {
-        return outTime;
-    }
-
-    public void setOutTime(String outTime) {
-        this.outTime = outTime;
-    }
+    public void setOutTime(String outTime);
+    
+    public Ticket clone();
     
 }

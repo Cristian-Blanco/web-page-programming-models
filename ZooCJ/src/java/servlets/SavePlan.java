@@ -34,38 +34,68 @@ public class SavePlan extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PlanDirector save = new PlanDirector();
+        response.setContentType("text/html;charset=UTF-8");  
+        
+        
+        
+    }
+    
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+        
         Client client = new Client();
+        
         try (PrintWriter out = response.getWriter()) {
-            if(Instance.getInstance()){   
+            
+            if(Instance.alreadyInstance()){   
                     /* TODO output your page here. You may use following sample code. */
                     out.println("<!DOCTYPE html>");
                     out.println("<html>");
                     out.println("<head>");
-                    out.println("<title>Servlet SavePlan</title>");            
+                    out.println("<title>Plan</title>");            
                     out.println("</head>");
                     out.println("<body>");
-                    out.println("<h1>Servlet SavePlan at " + request.getContextPath() + "</h1>");
+                    out.println("<form action=\"PlanDirector\" method=\"get\" id=\"form\" enctype=\"multipart/form-data\">" + 
+                                "<select name=\"selection_plan\" id=\"selection_plan\" placeholder=\"Select your favorite plan:\"required>"
+                                +"<option id=\"op1\" value=\"3\">Silver</option>\n"
+                                +"<option id=\"op2\" value=\"2\">Golden</option>\n" 
+                                +"<option id=\"op3\" value=\"1\">Platinum</option> "
+                                +"</select>"
+                                +"<p type=\"Arrival time:\"><input name=\"time_in\" id=\"time_in\" placeholder=\"Arrival time\" required></input></p>"
+                                +"<p type=\"Exit time:\"><input name=\"time_out\" id=\"time_out\" placeholder=\"Exit time\" required></input></p>"
+                                +"<p type=\"Visiters ammount:\"><input name=\"visiter_ammount\" id=\"visiter_ammount\" placeholder=\"Visiters ammount\" required></input></p>"
+                                +"<button>Submit</button>"
+                                + "</form>");
                     out.println("</body>");
                     out.println("</html>");
-
+                    Instance only = Instance.getInstance();
             }else{
                     Ticket cloned = client.cloned(PlanDirector.getTicket());
                     /* TODO output your page here. You may use following sample code. */
                     out.println("<!DOCTYPE html>");
                     out.println("<html>");
                     out.println("<head>");
-                    out.println("<title>Servlet SavePlan</title>");            
+                    out.println("<title>Plan</title>");            
                     out.println("</head>");
                     out.println("<body>");
-                    out.println("<h1>Servlet SavePlan at " + request.getContextPath() + "</h1>");
+                    out.println("<form action=\"PlanDirector\" method=\"get\" id=\"form\" enctype=\"multipart/form-data\">Datos anteiores " 
+                                +"<p type=\"Info:\">Actual plan: " +cloned.getPlanName()+ "</p>"
+                                +"<select name=\"selection_plan\" id=\"selection_plan\" placeholder="+cloned.getPlanName()+">"
+                                +"<option id=\"op1\" value=\"3\">Silver</option>\n"
+                                +"<option id=\"op2\" value=\"2\">Golden</option>\n" 
+                                +"<option id=\"op3\" value=\"1\">Platinum</option> "
+                                +"</select>"
+                                +"<p type=\"Arrival time:\">Previously arrival time: <input name=\"time_in\" id=\"time_in\" placeholder=" +cloned.getInTime()+ "></input></p>"
+                                +"<p type=\"Exit time:\">Previously exit time: <input name=\"time_out\" id=\"time_out\" placeholder=" +cloned.getOutTime()+ "></input></p>"
+                                +"<p type=\"Visiters ammount:\">Previously visiters ammount: <input name=\"visiter_ammount\" id=\"visiter_ammount\" placeholder="+cloned.getVisiterAmmount()+"></input></p>"
+                                +"<button>Submit</button>"
+                                + "</form>");
                     out.println("</body>");
                     out.println("</html>");
             }
       }
         
-        
     }
+    
 
 }

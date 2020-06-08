@@ -12,22 +12,73 @@ import prototype.abstractEntities.Ticket;
  *
  * @author jackl
  */
-public class GoldenTicket extends Ticket{
+public class GoldenTicket implements Ticket{
     
+    private String benefits="Ruta guiada y acceso ilimitado a zonas de descanso.";
+    private String planName="Golden";
+    private String price = "$10 USD por persona";
+    private String visiterAmmount = "";
+    private String inTime="";
+    private String outTime="";
     
     
 
     @Override
     public Ticket clone() {
         Ticket deepSave = new GoldenTicket();
-        deepSave.setBenefits("Ruta guiada y acceso ilimitado a zonas de descanso.");
-        deepSave.setPlanName("Golden");
-        deepSave.setPrice("$10 USD por persona");
         deepSave.setVisiterAmmount(this.getVisiterAmmount());
         deepSave.setInTime(this.getInTime());
         deepSave.setOutTime(this.getOutTime());
         return deepSave;
     }
+
+    @Override
+    public String getVisiterAmmount() {
+        return visiterAmmount;
+    }
+
+    @Override
+    public void setVisiterAmmount(String visiterAmmount) {
+        this.visiterAmmount = visiterAmmount;
+    }
+
+    @Override
+    public String getInTime() {
+        return inTime;
+    }
+
+    @Override
+    public void setInTime(String inTime) {
+        this.inTime = inTime;
+    }
+
+    @Override
+    public String getOutTime() {
+        return outTime;
+    }
+
+    @Override
+    public void setOutTime(String outTime) {
+        this.outTime = outTime;
+    }
+
+    @Override
+    public String getBenefits() {
+        return benefits;
+    }
+
+    @Override
+    public String getPlanName() {
+        return planName;
+    }
+
+    @Override
+    public String getPrice() {
+        return price;
+    }
+
+    
+    
     
     
 }
